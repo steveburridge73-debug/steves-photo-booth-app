@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-display: "Newsreader", "Times New Roman", serif;
+  --font-sans: "Outfit", "Segoe UI", system-ui, sans-serif;
+
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-elevated: var(--elevated);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-subtle: var(--subtle);
+  --color-accent: var(--accent);
+  --color-accent-fg: var(--accent-fg);
+  --color-border: var(--border);
+  --color-danger: var(--danger);
+  --color-danger-fg: var(--danger-fg);
+  --color-ring: var(--ring);
+
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-2xl: 28px;
+
+  --shadow-border: var(--shadow-border-token);
+}
+
+:root,
+.dark {
+  color-scheme: dark;
+  --bg: #0c0b0a;
+  --surface: #161412;
+  --elevated: #1e1b18;
+  --fg: #f3ece4;
+  --muted: #a89888;
+  --subtle: #7a6c60;
+  --accent: #c17a4a;
+  --accent-fg: #1a100c;
+  --border: color-mix(in oklab, var(--fg) 12%, transparent);
+  --ring: #c17a4a;
+  --danger: #b4544a;
+  --danger-fg: #f6ece8;
+  --shadow-border-token: 0 0 0 1px rgba(243, 236, 228, 0.08);
+}
+
+.light {
+  color-scheme: light;
+  --bg: #f6f1ea;
+  --surface: #fffaf4;
+  --elevated: #efe6db;
+  --fg: #1c1814;
+  --muted: #6d6156;
+  --subtle: #8a7c70;
+  --accent: #a35c32;
+  --accent-fg: #fffaf4;
+  --border: color-mix(in oklab, var(--fg) 12%, transparent);
+  --ring: #a35c32;
+  --danger: #9b3d36;
+  --danger-fg: #fffaf4;
+  --shadow-border-token:
+    0 0 0 1px rgba(28, 24, 20, 0.06),
+    0 1px 2px -1px rgba(28, 24, 20, 0.06),
+    0 2px 4px 0 rgba(28, 24, 20, 0.04);
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html,
+  body,
+  #app {
+    min-height: 100dvh;
+    background: var(--bg);
+    color: var(--fg);
+  }
+
+  body {
+    font-family: var(--font-sans);
+    line-height: 1.5;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    text-wrap: balance;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  img {
+    outline: 1px solid color-mix(in oklab, var(--fg) 10%, transparent);
+    outline-offset: -1px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
