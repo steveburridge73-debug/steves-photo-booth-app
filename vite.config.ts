@@ -142,10 +142,17 @@ function authPopupPlugin(): Plugin {
   };
 }
 
+// GitHub Pages serves this repo at /steves-photo-booth-app/.
+// Only the pages build uses that base and a static SPA shell.
+// Dev, preview and the normal production build stay at "/".
+const pagesBuild = process.env.GITHUB_PAGES === "1";
+const pagesBase = "/steves-photo-booth-app/";
+
 // `0.0.0.0:8080` is the live-preview contract — don't change host/port.
 // The dev server starts once `src/router.tsx` and `src/routes/` exist — see
 // AGENTS.md § "First scaffold".
 export default defineConfig(({ command, isPreview }) => ({
+  base: pagesBuild ? pagesBase : "/",
   server: {
     host: "0.0.0.0",
     port: 8080,
@@ -166,7 +173,7 @@ export default defineConfig(({ command, isPreview }) => ({
     // PWA head + ?install=1 tutorial page; runs before Start/Nitro.
     grokPwaPlugin(),
     tailwindcss(),
-    tanstackStart(),
+    tanstackStart(pagesBuild ? { spa: { enabled: true } } : undefined),
     ...(command === "build" || isPreview
       ? [
           nitro({

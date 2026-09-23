@@ -1,0 +1,1 @@
+import{H as e,r as t,z as n}from"./link-BbZsmMoA.js";var r=e(n(),1);function i(e){let n=t();return r.useCallback(t=>n.navigate({...t,from:t.from??e?.from}),[e?.from,n])}export{i as t};
