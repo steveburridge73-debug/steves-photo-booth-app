@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Steve's Photo Booth</title>
+    <meta
+      name="description"
+      content="A personal darkroom for restoring, editing and transforming photographs."
+    />
+    <link rel="icon" href="public/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Outfit:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #0c0b0a;
+        --fg: #f3efe8;
+        --muted: #b7aea3;
+        --accent: #c17a4a;
+        --line: rgba(243, 239, 232, 0.12);
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        min-height: 100dvh;
+        background: var(--bg);
+        color: var(--fg);
+        font-family: Outfit, sans-serif;
+        font-size: 1.05rem;
+        line-height: 1.5;
+      }
+      main {
+        max-width: 34rem;
+        margin: 0 auto;
+        padding: 3.5rem 1.35rem 4rem;
+      }
+      p.kicker {
+        margin: 0;
+        color: var(--accent);
+        font-size: 0.75rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+      h1 {
+        margin: 0.6rem 0 0;
+        font-family: Newsreader, serif;
+        font-size: 2.6rem;
+        font-weight: 500;
+        line-height: 1.05;
+      }
+      p.lead {
+        margin: 1rem 0 0;
+        color: var(--muted);
+      }
+      section {
+        margin-top: 2rem;
+        padding-top: 1.4rem;
+        border-top: 1px solid var(--line);
+      }
+      h2 {
+        margin: 0;
+        font-family: Newsreader, serif;
+        font-size: 1.35rem;
+        font-weight: 500;
+      }
+      p { margin: 0.7rem 0 0; }
+      a { color: var(--accent); }
+      ul {
+        margin: 0.8rem 0 0;
+        padding-left: 1.1rem;
+        color: var(--muted);
+      }
+      li + li { margin-top: 0.35rem; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <p class="kicker">Photo Fixer</p>
+      <h1>Steve's Photo Booth</h1>
+      <p class="lead">
+        A personal darkroom for restoring, repairing, editing and playfully transforming photographs.
+      </p>
+      <section>
+        <h2>This page is the site root</h2>
+        <p>
+          GitHub Pages was returning 404 because the repository had no
+          <code>index.html</code> in the root. The application source was already here,
+          in <code>src</code>, <code>public</code> and <code>scripts</code> — not inside another project folder.
+        </p>
+        <p>
+          Those folders have to stay. The workshop is a server application: generating and
+          editing a photograph calls an API that GitHub Pages cannot run. Moving every file
+          into this one folder would also overwrite shared names such as <code>index.tsx</code>.
+        </p>
+      </section>
+      <section>
+        <h2>What lives in the repository</h2>
+        <ul>
+          <li><a href="src">src</a> — screens, tools and prompts</li>
+          <li><a href="public">public</a> — icon and share image</li>
+          <li><a href="https://github.com/steveburridge73-debug/steves-photo-booth-app">Source on GitHub</a></li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>
