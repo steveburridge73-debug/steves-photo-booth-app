@@ -4,6 +4,7 @@ import { PreviewHostBridge } from "@/components/preview-host-bridge";
 import { AppShell } from "@/components/layout/AppShell";
 import { ThemeProvider } from "@/components/layout/ThemeProvider";
 import appCss from "../styles.css?url";
+import "../styles.css";
 
 const APP_NAME = "Steve's Photo Booth";
 
